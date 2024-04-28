@@ -13,6 +13,7 @@ const StudentAppointmentHistory = () => {
 
   useEffect(() => {
     scheduledList({ user_id });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const appointmentData = scheduledListData?.data?.studentItems;

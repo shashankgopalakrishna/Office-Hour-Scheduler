@@ -137,6 +137,7 @@ const useAPI = (type, options) => {
     if (!options.lazy) {
       requestData(options);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return [readProps, requestData, { fetchNext, refresh, clear }];

@@ -25,6 +25,7 @@ const StudentContainer = ({data}) => {
 
   useEffect(() => {
     getProfessorList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
     
 
