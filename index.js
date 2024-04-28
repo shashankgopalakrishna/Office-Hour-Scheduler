@@ -4,6 +4,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 const userRoutes = require("./routes/user.js")
 const schedule = require("./routes/schedule.js")
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -35,10 +36,15 @@ mongoose.connect('mongodb+srv://alishagaikwad03:016hRZDGX4xCBWOE@cluster0.zmq63n
 // Routes
 app.use('/api/items', itemsRouter);
 
-app.use(express.static("./CN-Project-Frontend/build"));
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "CN-Project-Frontend", "build", "index.html"))
-})
+// app.use(express.static("./CN-Project-Frontend1/build"));
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "CN-Project-Frontend1", "build", "index.html"))
+// })
+
+app.use(express.static(path.join(__dirname, 'CN-Project-Frontend1', 'build')));
+app.get("*", async (req, res) => {
+  res.sendFile(path.join(__dirname, "CN-Project-Frontend1", "build", "index.html"))
+});
 
 // -------
 
