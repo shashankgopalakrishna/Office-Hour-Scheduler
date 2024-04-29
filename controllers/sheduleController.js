@@ -340,11 +340,17 @@ exports.addStudentItem = async (req, res) => {
     }
 
     // TODO: IF WE WANT TO LIMIT THE AMOUNT OF TIME FOR STUDENTS MEETING PROFESSORS ADD VALIDATION HERE
-    const startTime = req.body.startTime;
+    let startTime = req.body.startTime;
     if (!startTime || !isIsoString(startTime)) {
       return sendError(res, ERRORS.ERROR_INVALID_START_TIME);
     }
-    const endTime = req.body.endTime;
+
+    startTime = new Date(startTime);
+    // set end time is 1 hour after the start time
+    let endTime = new Date(startTime);
+    endTime.setHours(endTime.getHours() + 1);
+    endTime = endTime.toISOString();
+    startTime = startTime.toISOString();
     if (!endTime || !isIsoString(endTime)) {
       return sendError(res, ERRORS.ERROR_INVALID_START_TIME);
     }
