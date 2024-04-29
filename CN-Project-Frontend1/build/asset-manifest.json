@@ -1,16 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.3edd4390.css",
-    "main.js": "/static/js/main.96efef37.js",
-    "static/js/453.f2e386e9.chunk.js": "/static/js/453.f2e386e9.chunk.js",
+    "main.js": "/static/js/main.52b211ee.js",
+    "static/js/787.e98b7545.chunk.js": "/static/js/787.e98b7545.chunk.js",
     "static/media/hepner-hall-zoom.png": "/static/media/hepner-hall-zoom.9c5ea087c3bca6dea8a2.png",
+    "static/media/logo.png": "/static/media/logo.eee6b339fc090130aeef.png",
     "index.html": "/index.html",
     "main.3edd4390.css.map": "/static/css/main.3edd4390.css.map",
-    "main.96efef37.js.map": "/static/js/main.96efef37.js.map",
-    "453.f2e386e9.chunk.js.map": "/static/js/453.f2e386e9.chunk.js.map"
+    "main.52b211ee.js.map": "/static/js/main.52b211ee.js.map",
+    "787.e98b7545.chunk.js.map": "/static/js/787.e98b7545.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3edd4390.css",
-    "static/js/main.96efef37.js"
+    "static/js/main.52b211ee.js"
   ]
 }
