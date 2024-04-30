@@ -22,8 +22,9 @@ const mongoose = require('mongoose');
 const itemsRouter = require('./routes/schedule.js');
 
 // Connect to MongoDB
-// mongoose.connect('mongodb://127.0.0.1:27017/officehourscheduler', {
-mongoose.connect('mongodb+srv://alishagaikwad03:016hRZDGX4xCBWOE@cluster0.zmq63nq.mongodb.net/officehourscheduler', {
+// For local connection -> mongoose.connect('mongodb://127.0.0.1:27017/officehourscheduler', {
+// mongodb cloud connection
+mongoose.connect('mongodb+srv://shashankg:ReplaceWithPassword@cluster0.zmq63nq.mongodb.net/officehourscheduler', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
@@ -36,17 +37,10 @@ mongoose.connect('mongodb+srv://alishagaikwad03:016hRZDGX4xCBWOE@cluster0.zmq63n
 // Routes
 app.use('/api/items', itemsRouter);
 
-// app.use(express.static("./CN-Project-Frontend1/build"));
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "CN-Project-Frontend1", "build", "index.html"))
-// })
-
-app.use(express.static(path.join(__dirname, 'CN-Project-Frontend1', 'build')));
+app.use(express.static(path.join(__dirname, 'CN-Project-Frontend', 'build')));
 app.get("*", async (req, res) => {
-  res.sendFile(path.join(__dirname, "CN-Project-Frontend1", "build", "index.html"))
+  res.sendFile(path.join(__dirname, "CN-Project-Frontend", "build", "index.html"))
 });
-
-// -------
 
 app.listen(PORT, () => console.log("Listening"));
 
