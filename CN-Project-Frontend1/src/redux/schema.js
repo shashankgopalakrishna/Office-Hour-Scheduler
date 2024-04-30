@@ -12,7 +12,7 @@ const authHeader = () => {
   return null;
 };
 
-const REACT_APP_API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'http://default:3000';
+const REACT_APP_API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:3000';
 console.log(process.env.REACT_APP_API_ENDPOINT, '--REACT_APP_API_ENDPOINT');
 
 export const schema = {
@@ -47,6 +47,17 @@ export const schema = {
     };
   },
 
+  GET_USER_DETAILS: (payload) => {
+    const url = `${REACT_APP_API_ENDPOINT}/api/${payload.user_id}`;
+
+    return {
+      props: "userDetails",
+      url,
+      method: "GET",
+      headers: authHeader(),
+    };
+  },
+
   GET_PROFESSOR_LIST: () => {
     const url = `${REACT_APP_API_ENDPOINT}/api/professors`;
 
@@ -73,7 +84,7 @@ export const schema = {
     const url = `${REACT_APP_API_ENDPOINT}/api/student/schedule/${payload.user_id}`;
 
     return {
-      props: "scheduledList",
+      props: "studentScheduledList",
       url,
       method: "GET",
       headers: authHeader(),
@@ -91,13 +102,14 @@ export const schema = {
     };
   },
 
-  // POST_STUDENT_SCHEDULE_ITEM: (payload) => {
-  //   const url = `${REACT_APP_API_ENDPOINT}/api/student/schedule/${payload.id}`;
-  //   return {
-  //     props: "addStudentScheduleItem",
-  //     url,
-  //     method: "POST",
-  //   };
-  // },
+  POST_STUDENT_SCHEDULE_ITEM: (payload) => {
+    const url = `${REACT_APP_API_ENDPOINT}/api/student/schedule/${payload.user_id}`;
+    return {
+      props: "addStudentScheduleItem",
+      url,
+      method: "POST",
+      headers: authHeader(),
+    };
+  },
   
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Button } from "../../../components";
 import Header from "../../../components/Header/";
 import Footer from "../../../components/Footer";
+import { Typography } from "antd";
 
 import {
   validateRequiredField,
@@ -18,7 +19,9 @@ import {
   StyledFormContainer,
 } from "../Authentication.styled";
 
-const LoginView = ({ onLoginSubmit,loginData, control, errors }) => {
+const { Text, Link } = Typography;
+
+const LoginView = ({ onLoginSubmit, loginData, control, errors }) => {
   const { loading, data, error } = loginData || {};
   return (
     <div>
@@ -77,6 +80,9 @@ const LoginView = ({ onLoginSubmit,loginData, control, errors }) => {
               </StyledWrapper>
 
               <Button text="Login" loading={loading} />
+              <Text>
+                Don't have an account? <Link href="./signup">Signup</Link>
+              </Text>
             </StyledAddUserSectionContainer>
           </Form>
         </StyledFormContainer>

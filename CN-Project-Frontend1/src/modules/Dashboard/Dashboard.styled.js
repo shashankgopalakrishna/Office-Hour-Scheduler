@@ -6,7 +6,7 @@ export const StyledDashboardContainer = styled.div`
   flex-direction: column;
   background-color: white;
   // box-shadow: 0px 1px 5px 1px lightgrey;
-  max-width: 1100px;
+  max-width: 990px;
   width: 100%;
   margin: 0 auto;
   padding: 20px;
@@ -20,6 +20,7 @@ export const StyleHeading = styled.p`
   font-weight: bold;
   font-size: 24px;
   font-align: center;
+  color:#ac1330;
 `;
 
 export const DashboardContent = styled.div`

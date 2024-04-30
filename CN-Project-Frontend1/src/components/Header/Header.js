@@ -1,20 +1,23 @@
 import React from "react";
-import { LogoStyle, HeaderStyle } from "./Header.styled";
+import { HeaderStyle } from "./Header.styled";
+
+import AppLogo from "../../assets/images/logo.png";
+import SdsuLogo from "../../assets/images/sdsu-logo.png";
 
 const Header = () => {
   return (
     <div>
       <HeaderStyle>
-        <LogoStyle>
-          <a href="https://www.sdsu.edu/">
-            <img
-              src="https://ou-resources.sdsu.edu/images/_sdsu/logo-2022/logo.png"
-              alt="San Diego State University"
-              height="40"
-              width="176"
-            />
-          </a>
-        </LogoStyle>
+        <a href="https://www.sdsu.edu/">
+          <img
+            src={SdsuLogo}
+            alt="San Diego State University"
+            height="40"
+            width="240"
+          />
+        </a>
+
+        <img src={AppLogo} alt="logo" width="80" />
       </HeaderStyle>
     </div>
   );

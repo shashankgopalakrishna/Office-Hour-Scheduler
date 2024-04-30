@@ -3,8 +3,10 @@ import ProfessorView from "./ProfessorView";
 import { useForm } from "react-hook-form";
 import useAPI from "../../../hooks/useAPI";
 import { helper } from "./helper";
+import { message } from "antd";
 
 const StudentContainer = ({ data }) => {
+
   const {
     handleSubmit,
     control,
@@ -13,6 +15,8 @@ const StudentContainer = ({ data }) => {
     watch,
     reset,
   } = useForm();
+
+const [messageApi, contextHolder] = message.useMessage();
 
   const user_id = localStorage.getItem("userId");
   const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
@@ -25,14 +29,14 @@ const StudentContainer = ({ data }) => {
     }
   );
 
-  const [, ProfessorScheduleItem] = useAPI("POST_PROFESSOR_SCHEDULE_ITEM", {
+  const [ProfessorData, ProfessorScheduleItem] = useAPI("POST_PROFESSOR_SCHEDULE_ITEM", {
     lazy: true,
   });
 
   useEffect(() => {
     getProfessorSchedule({ user_id });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[]);
+  }, [ProfessorData]);
 
 
   const professorItems = ProfessorSchedule?.data?.professorItems;
@@ -40,18 +44,19 @@ const StudentContainer = ({ data }) => {
 
   const showDate = watch("date");
 
-  const availableSlots = showDate
-    ? helper(professorItems, showDate?.toISOString())
-    : [];
-
   const handleSlotSelection = (slot) => {
     setSelectedTimeSlot(slot);
     setTimeSlotError("");
   };
 
+
     const handleScheduleSuccess = (slot) => {
       //add alert
       // refresh();
+    messageApi.open({
+      type: "success",
+      content: "Time slot released successfully",
+    });
       reset();
     };
 
@@ -74,27 +79,11 @@ const StudentContainer = ({ data }) => {
           payload,
         });
       }
-       
-    // if (timeSlotError) {
-    //   return; // Prevent form submission if there's an error message
-    // }
-    // const isoDate = formData.date.toISOString();
-    // const payload = formData;
-    // // createUser({
-    // //   onSuccess: handleCreateUserSuccess,
-    // //   payload,
-    // // });
-
-    // addStudentScheduleItem({
-    //   onSuccess: handleScheduleSuccess,
-    //   payload,
-    // });
-    // console.log(formData, isoDate);
-    //api call
   };
 
   return (
     <ProfessorView
+      contextHolder={contextHolder}
       onScheduleSubmit={handleSubmit(handleScheduleSubmit)}
       control={control}
       errors={errors}
@@ -107,7 +96,7 @@ const StudentContainer = ({ data }) => {
       data={data}
       studentItems={studentItems}
       showDate={showDate}
-      availableSlots={availableSlots}
+      professorItems={professorItems}
     />
   );
 };

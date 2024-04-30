@@ -13,7 +13,7 @@ const ShellView = ({props}) => {
         exact
         path="/"
         render={() => {
-          return <Redirect to="/dashboard" />;
+          return <Redirect to="/login" />;
         }}
       />
       <Route path="/dashboard" render={() => <DashboardContainer {...props} />} />

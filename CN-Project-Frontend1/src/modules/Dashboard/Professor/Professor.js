@@ -1,20 +1,63 @@
 import React from "react";
-import { AppointmentContent } from "./Professor.styled";
-
-const Professor = ({ data }) => {
-  const appointmentData = data.appointmentData;
+import {
+  AppointmentContent,StyledDescription,
+  StyledHeading,
+  StyledItemWrapper,
+  StyledWrapper,
+} from "../Student/Student.styled";
+const Professor = ({ studentItems }) => {
+  
   return (
-    <div>
-      <h3>Appointments</h3>
-      {appointmentData.map((appointment) => {
+    <StyledWrapper>
+      <StyledHeading>Upcoming Appointments</StyledHeading>
+      {studentItems?.map((appointment) => {
+        const [datePart, timePart] = appointment.startTime.split("T");
+
+        // Extract date components
+        const [year, month, day] = datePart.split("-");
+
+        // Extract time components
+        // eslint-disable-next-line
+        const [time, studentItems] = timePart.split("Z")[0].split(":");
+
+        const monthNames = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        const monthName = monthNames[parseInt(month, 10) - 1];
+
         return (
           <AppointmentContent key={appointment.id}>
-            <p>{appointment.reason}</p>
-            <p>{appointment.time}</p>
+            <StyledItemWrapper>
+              Date:{" "}
+              <StyledDescription>
+                {day} {monthName} {year}
+              </StyledDescription>
+            </StyledItemWrapper>
+            <StyledItemWrapper>
+              Time: <StyledDescription>{time}:00</StyledDescription>
+            </StyledItemWrapper>
+            <StyledItemWrapper>
+              Student Name: <StyledDescription>{appointment?.student_name}</StyledDescription>
+            </StyledItemWrapper>
+            <StyledItemWrapper>
+              Description:{" "}
+              <StyledDescription>{appointment?.description}</StyledDescription>
+            </StyledItemWrapper>
           </AppointmentContent>
         );
       })}
-    </div>
+    </StyledWrapper>
   );
 };
 

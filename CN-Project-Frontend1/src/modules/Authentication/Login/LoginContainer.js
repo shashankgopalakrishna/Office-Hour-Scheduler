@@ -20,7 +20,7 @@ const LoginContainer = () => {
   const handleLoginClick = ({ res }) => {
     localStorage.setItem("token", res.jwt);
     localStorage.setItem("userId", res.userId);
-    history.push("/dashboard");
+   history.push("/dashboard");
   };
 
   const handleLoginSubmit = (formData) => {

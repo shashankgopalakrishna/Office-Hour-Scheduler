@@ -20,6 +20,7 @@ import {
   checkMinLength,
   validateConfirmPassword
 } from "../../../utils/formValidations";
+import { Typography } from "antd";
 
 const OCCUPATION_STUB = [
   {
@@ -31,6 +32,8 @@ const OCCUPATION_STUB = [
     label: "Professor",
   },
 ];
+
+const { Text, Link } = Typography;
 
 const SignupView = ({ onSignupSubmit, control, watch, errors, signupData }) => {
   const { loading, data, error } = signupData || {};
@@ -190,6 +193,9 @@ const SignupView = ({ onSignupSubmit, control, watch, errors, signupData }) => {
                 </StyledItemWrapper>
               </StyledWrapper>
               <Button text="Signup" loading={loading} />
+              <Text>
+                Already have an account? <Link href="./login">Login</Link>
+              </Text>
             </StyledAddUserSectionContainer>
           </Form>
         </StyledFormContainer>

@@ -10,3 +10,11 @@ export const AppointmentContent = styled.div`
   padding: 20px 30px;
   border-bottom: solid 0.7px;
 `;
+
+export const StyledTitle = styled.div`
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom:30px;
+  /* color:#828282 */
+`;
+

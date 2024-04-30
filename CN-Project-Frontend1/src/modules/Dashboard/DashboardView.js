@@ -4,35 +4,39 @@ import {
   DashboardContent,
 } from "./Dashboard.styled";
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import Student from "./Student";
 import Professor from "./Professor";
+import { Loader } from "../../components";
 
-const DashboardView = ({ data }) => {
-  //add more components, by creating it outside.
+const DashboardView = ({ user }) => {
 
-  if (data.userType === "professor") {
-    return (
-      <div>
-        <Header />
-        <StyledDashboardContainer>
-          <StyleHeading>
-            {data.userType === "student"
-              ? "Welcome to Student Dashboard"
-              : "Welcome to Professor Dashboard"}
-          </StyleHeading>
-          <DashboardContent>
-            {data.userType === "student" ? (
-              <Student data={data} />
-            ) : (
-              <Professor data={data} />
-            )}
-          </DashboardContent>
-        </StyledDashboardContainer>
-        <Footer />
-      </div>
-    );
+  const { loading, data } = user || {};
+
+  if (loading || !data) {
+    return <Loader />;
   }
+
+  const userData = user?.data;
+
+  return (
+    <div>
+      <Header />
+      <StyledDashboardContainer>
+        <StyleHeading>
+          {userData?.occupation === "STUDENT"
+            ? `Welcome to Dashboard ${userData?.name}`
+            : `Welcome to Dashboard Professor, ${userData?.name}`}
+        </StyleHeading>
+        <DashboardContent>
+          {userData?.occupation === "STUDENT" ? (
+            <Student data={userData} />
+          ) : (
+            <Professor data={userData} />
+          )}
+        </DashboardContent>
+      </StyledDashboardContainer>
+    </div>
+  );
 };
 
 export default DashboardView;

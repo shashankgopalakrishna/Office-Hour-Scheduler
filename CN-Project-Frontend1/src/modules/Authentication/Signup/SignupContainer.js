@@ -23,7 +23,7 @@ const SignupContainer = () => {
     // const { email, mobileNumber } = payload;
   
     window.scrollTo(0, 0);
-    history.push("/dashboard");
+    history.push("/login");
     // if (email) {
     //   message.success(
     //     "You have registered successfully. Verification link has been sent to your registered Email Address. Please verify your Email Address."
