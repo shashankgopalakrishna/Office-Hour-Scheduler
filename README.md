@@ -19,9 +19,9 @@ Office-Hour-Scheduler is a full-stack web application designed to facilitate the
 
 ### Team Project at SDSU
 
-### Prerequisites
+## Prerequisites
 
-- Ensure you have the following installed on your machine:
+Ensure you have the following installed on your machine:
 
 - Node.js (v14 or above)
 - MongoDB cloud account (update your details in file)
