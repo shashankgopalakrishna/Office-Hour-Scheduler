@@ -8,7 +8,7 @@ Office-Hour-Scheduler is a full-stack web application designed to facilitate the
 - **Appointment Scheduling**: Professors can release available time slots for office hours.
 - **Booking Management**: Students can book available appointments with professors.
 - **Dashboard Views**: Both students and professors can view and manage their appointments.
-- **Notifications**: Email notifications for booking confirmations and reminders.
+- **Notifications(In-Progress)**: Email notifications for booking confirmations and reminders.
 
 ## Tech Stack
 
