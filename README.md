@@ -24,7 +24,7 @@ Office-Hour-Scheduler is a full-stack web application designed to facilitate the
 Ensure you have the following installed on your machine:
 
 - Node.js (v14 or above)
-- MongoDB cloud account (update your details in file)
+- MongoDB cloud account (update your details in index.js file)
 - Azure account (for deployment)
-- Update `.env` files inside both the frontend and backend folders with your host URL and other necessary environment variables.
+- Update `.env` files inside both the frontend("REACT_APP_API_ENDPOINT" value) and backend folders with your host URL and other necessary environment variables.
 
